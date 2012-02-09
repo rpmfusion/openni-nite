@@ -1,0 +1,72 @@
+diff -urN NITE-1.4.1.2/Samples/Boxes/Boxes.mak NITE-1.4.1.2.fedora/Samples/Boxes/Boxes.mak
+--- NITE-1.4.1.2/Samples/Boxes/Boxes.mak	2011-07-19 14:53:03.000000000 +0200
++++ NITE-1.4.1.2.fedora/Samples/Boxes/Boxes.mak	2011-08-30 17:17:01.587017594 +0200
+@@ -10,7 +10,7 @@
+ ifeq ("$(OSTYPE)","Darwin")
+         LDFLAGS += -framework OpenGL -framework GLUT
+ else
+-        USED_LIBS += glut
++        USED_LIBS += glut GL
+ endif
+ 
+ DEFINES = USE_GLUT
+diff -urN NITE-1.4.1.2/Samples/CircleControl/CircleControl.mak NITE-1.4.1.2.fedora/Samples/CircleControl/CircleControl.mak
+--- NITE-1.4.1.2/Samples/CircleControl/CircleControl.mak	2011-07-19 14:53:05.000000000 +0200
++++ NITE-1.4.1.2.fedora/Samples/CircleControl/CircleControl.mak	2011-08-30 17:17:01.587017594 +0200
+@@ -12,7 +12,7 @@
+ ifeq ("$(OSTYPE)","Darwin")
+         LDFLAGS += -framework OpenGL -framework GLUT
+ else
+-        USED_LIBS += glut
++        USED_LIBS += glut GL
+ endif
+ 
+ EXE_NAME = Sample-CircleControl
+diff -urN NITE-1.4.1.2/Samples/Players/Players.mak NITE-1.4.1.2.fedora/Samples/Players/Players.mak
+--- NITE-1.4.1.2/Samples/Players/Players.mak	2011-07-19 14:53:02.000000000 +0200
++++ NITE-1.4.1.2.fedora/Samples/Players/Players.mak	2011-08-30 17:17:01.588017592 +0200
+@@ -15,7 +15,7 @@
+ ifeq ("$(OSTYPE)","Darwin")
+         LDFLAGS += -framework OpenGL -framework GLUT
+ else
+-        USED_LIBS += glut
++        USED_LIBS += glut GL
+ endif
+ 
+ include ../NiteSampleMakefile
+diff -urN NITE-1.4.1.2/Samples/PointViewer/PointViewer.mak NITE-1.4.1.2.fedora/Samples/PointViewer/PointViewer.mak
+--- NITE-1.4.1.2/Samples/PointViewer/PointViewer.mak	2011-07-19 14:53:05.000000000 +0200
++++ NITE-1.4.1.2.fedora/Samples/PointViewer/PointViewer.mak	2011-08-30 17:17:01.588017592 +0200
+@@ -21,7 +21,7 @@
+ ifeq ("$(OSTYPE)","Darwin")
+         LDFLAGS += -framework OpenGL -framework GLUT
+ else
+-        USED_LIBS += glut
++        USED_LIBS += glut GL
+ endif
+ endif
+ include ../NiteSampleMakefile
+diff -urN NITE-1.4.1.2/Samples/SceneAnalysis/SceneAnalysis.mak NITE-1.4.1.2.fedora/Samples/SceneAnalysis/SceneAnalysis.mak
+--- NITE-1.4.1.2/Samples/SceneAnalysis/SceneAnalysis.mak	2011-07-19 14:53:06.000000000 +0200
++++ NITE-1.4.1.2.fedora/Samples/SceneAnalysis/SceneAnalysis.mak	2011-08-30 17:17:01.589017590 +0200
+@@ -20,7 +20,7 @@
+ ifeq ("$(OSTYPE)","Darwin")
+         LDFLAGS += -framework OpenGL -framework GLUT
+ else
+-        USED_LIBS += glut
++        USED_LIBS += glut GL
+ endif
+ endif
+ 
+diff -urN NITE-1.4.1.2/Samples/TrackPad/TrackPad.mak NITE-1.4.1.2.fedora/Samples/TrackPad/TrackPad.mak
+--- NITE-1.4.1.2/Samples/TrackPad/TrackPad.mak	2011-07-19 14:53:04.000000000 +0200
++++ NITE-1.4.1.2.fedora/Samples/TrackPad/TrackPad.mak	2011-08-30 17:17:01.589017590 +0200
+@@ -10,7 +10,7 @@
+ ifeq ("$(OSTYPE)","Darwin")
+         LDFLAGS += -framework OpenGL -framework GLUT
+ else
+-        USED_LIBS += glut
++        USED_LIBS += glut GL
+ endif
+ 
+ DEFINES = USE_GLUT
