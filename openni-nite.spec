@@ -2,7 +2,7 @@
 
 Name:           openni-nite
 Version:        1.4.1.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        OpenNI-based toolbox for hand movement tracking
 Group:          System Environment/Libraries
 License:        Proprietary
@@ -119,6 +119,9 @@ fi
 %{_bindir}/*
 
 %changelog
+* Thu Mar 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 1.4.1.2-3
+- Rebuilt for c++ ABI breakage
+
 * Wed Feb 02 2012 Tim Niemueller <tim@niemueller.de> - 1.4.1.2-2
 - Apply minor updates from rpmfusion review
 
