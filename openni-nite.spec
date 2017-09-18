@@ -1,8 +1,13 @@
 #define gitrev 894cea01
 
+# Disable debuginfo because
+# Empty %%files file /builddir/build/BUILD/NITE-1.4.1.2/debugsourcefiles.list
+%global                debug_package %{nil}
+
+
 Name:           openni-nite
 Version:        1.4.1.2
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        OpenNI-based toolbox for hand movement tracking
 Group:          System Environment/Libraries
 License:        Proprietary
@@ -10,7 +15,6 @@ URL:            http://www.openni.org
 Source0:        http://www.openni.org/downloads/NITE-Bin-Linux64-v%{version}.tar.bz2
 Source1:        http://www.openni.org/downloads/NITE-Bin-Linux32-v%{version}.tar.bz2
 Patch0:         NITE-1.4.1.2-fedora.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 ExclusiveArch:  x86_64 i386 i686
 
 Requires:       openni >= 1.3.2.1
@@ -46,7 +50,7 @@ The %{name}-examples package contains sample programs for OpenNI Nite.
 %else
 %define srcnum 1
 %endif
-%setup -q -c -n NITE-%{version} -T -b %{srcnum}
+%setup -q -c -n NITE-%{version} -T -a %{srcnum}
 %patch0 -p1 -b .fedora
 
 
@@ -55,7 +59,6 @@ sed -i "s|^make$|make CFLAGS_EXT=\\\"%{optflags} -I$PWD/Include\\\" LDFLAGS_EXT=
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
 mkdir -p $RPM_BUILD_ROOT%{_libdir}
 mkdir -p $RPM_BUILD_ROOT%{_includedir}/nite
@@ -78,9 +81,6 @@ cp -a Include/* $RPM_BUILD_ROOT%{_includedir}/nite
 for s in Boxes CircleControl Players PointServer PointViewer SceneAnalysis SingleControl TrackPad; do
   install -m 0755 Samples/Bin/Release/Sample-$s $RPM_BUILD_ROOT%{_bindir}/Nite$s;
 done
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %post
@@ -105,20 +105,22 @@ fi
 
 
 %files
-%defattr(-,root,root,-)
 %config(noreplace) %{_sysconfdir}/openni/*
 %{_libdir}/*.so*
 
 %files devel
-%defattr(-,root,root,-)
 %doc Documentation/html
 %{_includedir}/*
 
-%files examples 
-%defattr(-,root,root,-)
+%files examples
 %{_bindir}/*
 
 %changelog
+* Mon Sep 18 2017 Sérgio Basto <sergio@serjux.com> - 1.4.1.2-8
+- Fixup rpm setup macro use -a instead -b
+- Package clean up
+- Disable debuginfo due a build error with empty file debugsourcefiles.list
+
 * Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.4.1.2-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
@@ -134,7 +136,7 @@ fi
 * Thu Mar 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 1.4.1.2-3
 - Rebuilt for c++ ABI breakage
 
-* Wed Feb 02 2012 Tim Niemueller <tim@niemueller.de> - 1.4.1.2-2
+* Wed Feb 08 2012 Tim Niemueller <tim@niemueller.de> - 1.4.1.2-2
 - Apply minor updates from rpmfusion review
 
 * Tue Aug 30 2011 Tim Niemueller <tim@niemueller.de> - 1.4.1.2-1
