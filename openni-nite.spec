@@ -7,7 +7,7 @@
 
 Name:           openni-nite
 Version:        1.4.1.2
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        OpenNI-based toolbox for hand movement tracking
 Group:          System Environment/Libraries
 License:        Proprietary
@@ -116,6 +116,9 @@ fi
 %{_bindir}/*
 
 %changelog
+* Sun Aug 19 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.4.1.2-11
+- Rebuilt for Fedora 29 Mass Rebuild binutils issue
+
 * Fri Jul 27 2018 RPM Fusion Release Engineering <sergio@serjux.com> - 1.4.1.2-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
