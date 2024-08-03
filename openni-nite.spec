@@ -51,7 +51,7 @@ The %{name}-examples package contains sample programs for OpenNI Nite.
 %define srcnum 1
 %endif
 %setup -q -c -n NITE-%{version} -T -a %{srcnum}
-%patch0 -p1 -b .fedora
+%patch -P0 -p1 -b .fedora
 
 
 %build
